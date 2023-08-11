@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>修修仙 - 境界系统 - 来自于xiaozhou</title>
+<style>
+  #title {
+    font-size: 36px;
+    text-align: center;
+    margin-top: 40px;
+  }
+  #counter {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  #realm {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  #upgrade-info {
+    font-size: 18px;
+    text-align: center;
+    margin-top: 10px;
+  }
+  #practice-button {
+    display: block;
+    margin: 40px auto;
+    padding: 15px 30px;
+    font-size: 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+<div id="title">修修仙</div>
+<div id="counter">修为: <span id="count">0</span></div>
+<div id="realm">境界: <span id="realm-level">初学者</span></div>
+<div id="upgrade-info">升级所需修为: <span id="upgrade-requirement">10</span></div>
+<button id="practice-button">修炼</button>
+
+<script>
+  var count = 0;
+  var realmLevel = "初学者";
+  var upgradeRequirement = 10; // 初始升级所需修为
+  var counter = document.getElementById("count");
+  var realmCounter = document.getElementById("realm-level");
+  var upgradeInfo = document.getElementById("upgrade-requirement");
+  var practiceButton = document.getElementById("practice-button");
+
+  practiceButton.addEventListener("click", function() {
+    count++;
+    counter.textContent = count;
+
+    if (count >= upgradeRequirement) {
+      upgradeRealm();
+    }
+  });
+
+  function upgradeRealm() {
+    if (realmLevel === "初学者") {
+      realmLevel = "新手修士";
+      upgradeRequirement = 100;
+    } else if (realmLevel === "新手修士") {
+      realmLevel = "初级修仙者";
+      upgradeRequirement = 1000;
+    } else if (realmLevel === "初级修仙者") {
+      realmLevel = "中级修仙者";
+      upgradeRequirement = 10000;
+    } else if (realmLevel === "中级修仙者") {
+      realmLevel = "高级修仙者";
+      upgradeRequirement = 100000;
+    } else if (realmLevel === "高级修仙者") {
+      realmLevel = "元婴境界";
+      upgradeRequirement = 1000000;
+    } else if (realmLevel === "元婴境界") {
+      realmLevel = "化神境界";
+      upgradeRequirement = 10000000;
+    } else if (realmLevel === "化神境界") {
+      realmLevel = "天仙境界";
+      upgradeRequirement = 100000000;
+    } else if (realmLevel === "天仙境界") {
+      realmLevel = "地仙境界";
+      upgradeRequirement = 1000000000;
+    } else if (realmLevel === "地仙境界") {
+      realmLevel = "神仙境界";
+      upgradeRequirement = 10000000000;
+    }
+    
+    realmCounter.textContent = realmLevel;
+    upgradeInfo.textContent = upgradeRequirement;
+    count = 0; // 清空修为
+  }
+</script>
+</body>
+</html>
